@@ -127,7 +127,7 @@ Message.prototype.respond = function(
     response.header = {
         msg_id: uuid(),
         username: this.header.username,
-        session: uuid(),
+        session: this.header.session,
         msg_type: messageType,
     };
     if (this.header && this.header.version) {
