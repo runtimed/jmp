@@ -37,7 +37,7 @@
 var assert = require("assert");
 var crypto = require("crypto");
 
-var uuid = require("uuid/v4");
+var uuid = require("uuid").v4;
 
 var jmp = require("..");
 var zmq = jmp.zmq;
@@ -136,9 +136,10 @@ describe("Listeners", function() {
             );
             context.clientSocket.removeAllListeners();
 
-            assert.deepEqual(
-                context.serverSocket._events, {},
-                "Failed to removed all listeners in serverSocket"
+            assert.equal(
+                context.serverSocket.listenerCount("message"),
+                0,
+                "Failed to remove all 'message' listeners in serverSocket"
             );
 
             assert.deepEqual(
@@ -146,9 +147,10 @@ describe("Listeners", function() {
                 "Failed to removed all message listeners in serverSocket"
             );
 
-            assert.deepEqual(
-                context.clientSocket._events, {},
-                "Failed to removed all listeners in clientSocket"
+            assert.equal(
+                context.clientSocket.listenerCount("message"),
+                0,
+                "Failed to remove all 'message' listeners in clientSocket"
             );
 
             assert.deepEqual(

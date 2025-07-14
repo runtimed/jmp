@@ -1,6 +1,6 @@
 {
-    "name": "jmp",
-    "version": "2.0.0",
+    "name": "@runtimed/jmp",
+    "version": "3.0.0",
     "description": "Node.js module for creating, parsing and replying to messages of the Jupyter Messaging Protocol (JMP)",
     "keywords": [
         "jupyter",
@@ -22,8 +22,8 @@
         "url": "https://github.com/n-riesco/jmp.git"
     },
     "dependencies": {
-        "uuid": "3",
-        "zeromq": "5"
+        "uuid": "^11.1.0",
+        "zeromq": "^6.5"
     },
     "engines": {
         "node": ">=6"
