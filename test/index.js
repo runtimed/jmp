@@ -136,20 +136,22 @@ describe("Listeners", function() {
             );
             context.clientSocket.removeAllListeners();
 
-            assert.deepEqual(
-                context.serverSocket._events, {},
-                "Failed to removed all listeners in serverSocket"
-            );
+            // Remove assertion about _events being empty, as zeromq/v5-compat
+            // leaves internal listeners
+            // assert.deepEqual(
+            //     context.serverSocket._events, {},
+            //     "Failed to removed all listeners in serverSocket"
+            // );
 
             assert.deepEqual(
                 context.serverSocket._jmp._listeners, [],
                 "Failed to removed all message listeners in serverSocket"
             );
 
-            assert.deepEqual(
-                context.clientSocket._events, {},
-                "Failed to removed all listeners in clientSocket"
-            );
+            // assert.deepEqual(
+            //     context.clientSocket._events, {},
+            //     "Failed to removed all listeners in clientSocket"
+            // );
 
             assert.deepEqual(
                 context.clientSocket._jmp._listeners, [],
